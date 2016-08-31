@@ -6,7 +6,7 @@ clean:
 
 .PHONY: static
 static:
-	python manage.py collectstatic --no-input
+	python manage.py collectstatic --no-input --no-post-process
 
 .PHONY: load_entries
 load_entries:
