@@ -1,0 +1,71 @@
+.banner-wrapper {
+}
+
+.banner {
+    margin-bottom: 10px;
+}
+
+.website-title {
+    font-size: 64px;
+    font-style: italic;
+    font-family: serif;
+    font-weight: 200;
+    color: black;
+}
+
+.banner-wrapper a {
+    text-decoration: none;
+}
+
+.website-subtitle {
+    font-family: "Open Sans light", Helvetica, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #B8B8B8;
+    margin-top: -12px;
+}
+
+.nav-wrapper {
+    font-size: 12px;
+    margin-bottom: 5px;
+    background-color: slategray;
+}
+
+.nav-wrapper nav {
+    margin-bottom: -5px;
+}
+
+.nav-item-wrapper {
+    border: solid white;
+    border-width: 0 1px 5px 1px;
+}
+
+.nav-item-wrapper:not(:first-child) {
+    border-left-width: 0;
+}
+
+.nav-item-wrapper a {
+    color: black;
+    font-family: Helvetica, sans-serif;
+}
+
+.nav-item-wrapper.current-page a {
+    pointer-events: none;
+}
+
+.nav-item-wrapper.current-page .nav-item {
+    color: white;
+    background-color: #709070;
+    font-style: italic;
+    border-width: 0 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom-color: #8DB58D;
+    border-style: solid;
+}
+
+.nav-item {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: slategray;
+    font-size: 10pt;
+}

@@ -1,0 +1,11 @@
+*.pyc
+.DS_Store
+*.swp
+
+/cache/
+/cgi-bin/
+/static/
+
+secret.py
+
+db.*

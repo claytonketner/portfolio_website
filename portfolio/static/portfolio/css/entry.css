@@ -1,0 +1,43 @@
+body {
+    font-size: 16px !important; /* Need important to override bootstrap */
+}
+
+.entry-title h1 {
+    margin-bottom: 0;
+}
+
+.entry-date h4 {
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+img {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.multi-img img {
+    width: 100%;
+}
+
+.img-caption {
+    padding: 0 10px;
+    margin: auto auto;
+    margin-bottom: 25px;
+    font-style: italic;
+    border: solid #BFBFBF;
+    border-width: 0 0 0 3px;
+    width: 75%;
+}
+
+.multi-img .img-caption {
+    width: 95%;
+}
+
+iframe {
+    width: 100%;
+    border-radius: 5px;
+}

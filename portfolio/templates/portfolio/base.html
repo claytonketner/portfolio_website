@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  {% load static %}
+
+  {% block head %}
+  {% endblock head %}
+
+  {% block css %}
+    <link rel="stylesheet" href="{% static "website/bootstrap-3.3.5-dist/css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "portfolio/css/base.css" %}"/>
+    <link rel="stylesheet" href="{% static "portfolio/css/fonts.css" %}"/>
+  {% endblock css %}
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row banner-wrapper">
+      <a href="{% url 'index' %}">
+        <div class="banner col-xs-12 col-md-8 col-md-offset-2">
+          <div class="row">
+            <div class="website-title col-xs-12">
+              Clayton Salinger Ketner
+            </div>
+          </div>
+          <div class="row">
+            <div class="website-subtitle col-xs-12">
+              Mechanical Engineering &amp; Computer Science
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="row nav-wrapper">
+      <nav class="col-xs-12 col-md-8 col-md-offset-2">
+        {% for entry in all_entries %}
+          <div class="nav-item-wrapper pull-left
+              {% if current_entry.slug == entry.slug %}
+                current-page
+              {% endif %}
+              ">
+            <a href="{% url 'entry' entry.slug %}">
+              <div class="nav-item">
+                {{ entry.title }}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
