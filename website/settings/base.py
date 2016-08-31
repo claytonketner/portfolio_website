@@ -20,7 +20,7 @@ PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = bool(int(os.environ['DEBUG']))
 
-ALLOWED_HOSTS = ['localhost', '.claytonketner.com']
+ALLOWED_HOSTS = ['localhost', '.herokuapp.com', '.claytonketner.com']
 
 
 # Application definition
