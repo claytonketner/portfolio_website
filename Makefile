@@ -10,5 +10,5 @@ load_entries:
 
 .PHONY: migrate
 migrate:
-	python manage.py makemigrations
+	python manage.py makemigrations portfolio
 	python manage.py migrate
