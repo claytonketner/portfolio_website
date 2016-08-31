@@ -14,15 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-EMAIL_HOST = os.environ.get('EMAIL_HOST', None)
-SERVER_EMAIL = os.environ.get('SERVER_EMAIL', None)
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', None)
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', None)
-EMAIL_PORT = os.environ.get('EMAIL_PORT', None)
-EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', None)
-ADMINS = os.environ.get('ADMINS', None)
+PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
 
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = os.environ['DEBUG']
@@ -79,11 +73,12 @@ TEMPLATES = [
     },
 ]
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_PATH, 'static/')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_PATH, 'website/static/'),
-    os.path.join(BASE_PATH, 'entries/static/'),
+    os.path.join(PROJECT_ROOT, 'website/static/'),
+    os.path.join(PROJECT_ROOT, 'entries/static/'),
 ]
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
@@ -91,11 +86,11 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DB_ENGINE = os.environ.get['DB_ENGINE']
-DB_NAME = os.environ.get['DB_NAME']
-DB_USER = os.environ.get['DB_USER']
-DB_PASS = os.environ.get['DB_PASS']
-DB_HOST = os.environ.get['DB_HOST']
+DB_ENGINE = os.environ.get('DB_ENGINE', None)
+DB_NAME = os.environ.get('DB_NAME', None)
+DB_USER = os.environ.get('DB_USER', None)
+DB_PASS = os.environ.get('DB_PASS', None)
+DB_HOST = os.environ.get('DB_HOST', None)
 DATABASES = {
     'default': {
         'ENGINE': DB_ENGINE,
@@ -106,6 +101,10 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 SHELL_PLUS = 'ipython'
 
@@ -130,6 +129,14 @@ AUTH_PASSWORD_VALIDATORS = [
                 'NumericPasswordValidator',
     },
 ]
+
+EMAIL_HOST = os.environ.get('EMAIL_HOST', None)
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL', None)
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', None)
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', None)
+EMAIL_PORT = os.environ.get('EMAIL_PORT', None)
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', None)
+ADMINS = os.environ.get('ADMINS', None)
 
 
 # Internationalization
