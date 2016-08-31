@@ -6,6 +6,6 @@
 /cgi-bin/
 /static/
 
-secret.py
+.env
 
 db.*

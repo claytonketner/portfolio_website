@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
 
@@ -53,12 +52,11 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'website.urls'
 
-BASE_PATH = os.environ['BASE_PATH']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_PATH + 'website/templates/',
+            BASE_DIR + 'templates/',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -73,10 +71,10 @@ TEMPLATES = [
     },
 ]
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'website/static/'),
-    os.path.join(PROJECT_ROOT, 'entries/static/'),
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '../entries/static'),
 ]
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
@@ -93,12 +91,8 @@ DB_PASS = os.environ.get('DB_PASS', None)
 DB_HOST = os.environ.get('DB_HOST', None)
 DATABASES = {
     'default': {
-        'ENGINE': DB_ENGINE,
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASS,
-        'HOST': DB_HOST,
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, '../db.sqlite3'),
     }
 }
 
