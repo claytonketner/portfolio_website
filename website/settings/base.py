@@ -16,19 +16,16 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
 
-try:
-    from .secret import EMAIL_HOST  # nopep8
-    from .secret import SERVER_EMAIL  # nopep8
-    from .secret import EMAIL_HOST_USER  # nopep8
-    from .secret import EMAIL_HOST_PASSWORD  # nopep8
-    from .secret import EMAIL_PORT  # nopep8
-    from .secret import EMAIL_USE_SSL  # nopep8
-    from .secret import ADMINS  # nopep8
-except Exception as ex:
-    pass
+EMAIL_HOST = os.environ.get('EMAIL_HOST', None)
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL', None)
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', None)
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', None)
+EMAIL_PORT = os.environ.get('EMAIL_PORT', None)
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', None)
+ADMINS = os.environ.get('ADMINS', None)
 
-from .secret import SECRET_KEY  # nopep8
-from .secret import DEBUG  # nopep8
+SECRET_KEY = os.environ['SECRET_KEY']
+DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = ['localhost', '.claytonketner.com']
 
@@ -62,7 +59,7 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'website.urls'
 
-from .secret import BASE_PATH
+BASE_PATH = os.environ['BASE_PATH']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -94,11 +91,11 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-from .secret import DB_ENGINE
-from .secret import DB_NAME
-from .secret import DB_USER
-from .secret import DB_PASS
-from .secret import DB_HOST
+DB_ENGINE = os.environ.get['DB_ENGINE']
+DB_NAME = os.environ.get['DB_NAME']
+DB_USER = os.environ.get['DB_USER']
+DB_PASS = os.environ.get['DB_PASS']
+DB_HOST = os.environ.get['DB_HOST']
 DATABASES = {
     'default': {
         'ENGINE': DB_ENGINE,
