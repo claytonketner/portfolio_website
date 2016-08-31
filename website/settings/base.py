@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
 
 SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = os.environ['DEBUG']
+DEBUG = bool(int(os.environ['DEBUG']))
 
 ALLOWED_HOSTS = ['localhost', '.claytonketner.com']
 
