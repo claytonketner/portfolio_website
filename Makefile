@@ -1,5 +1,9 @@
 all: static load_entries
 
+.PHONY: clean
+clean:
+	rm -rf static/
+
 .PHONY: static
 static:
 	python manage.py collectstatic --no-input
