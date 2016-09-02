@@ -128,9 +128,11 @@ EMAIL_HOST = os.environ.get('EMAIL_HOST', None)
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL', None)
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', None)
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', None)
-EMAIL_PORT = os.environ.get('EMAIL_PORT', None)
-EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', None)
-ADMINS = os.environ.get('ADMINS', None)
+EMAIL_PORT = os.environ.get('EMAIL_PORT', 25)
+EMAIL_USE_TLS = True
+ADMINS = [
+    (os.environ.get('ADMIN_NAME', None), os.environ.get('ADMIN_EMAIL', None)),
+]
 
 
 # Internationalization
