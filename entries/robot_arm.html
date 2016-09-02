@@ -8,7 +8,7 @@
 <body>
   <p>This is the second version of a robotic arm I made over the summer of 2012. I worked on it on and off over two months.</p>
 
-<h3>Final Result</h3>
+<h2>Final Result</h2>
   <p>Here's a tedious video (sorry) of the final functionality of the arm. It shows how the inverse kinematics work. The arm can accept a number of gcode-like commands:</p>
   <ul>
     <li>'g111222' -- Go to the two angles specified, where 111 is the angle for the first segment, and 222 is the angle for the second segment.</li>
@@ -18,10 +18,10 @@
   </ul>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/vE6wKMVQNNQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
-<h3>Idea</h3>
+<h2>Idea</h2>
   <p>I decided to use stepper motors due to their resolution. Hobby servos are easy to use but their rotation resolution is still too large - especially when the movement is amplified by a long lever arm. I also found some worm gears online that helped increase the rotation resolution even further, and also allowed me to mount the motors perpendicular to the arm's rotation axis. This allowed for a symmetrical design, ensuring the arm would be balanced.</p>
 
-<h3>Design</h3>
+<h2>Design</h2>
   <p>I had just learned how to use a CNC mill, which gave me a lot more freedom in my design.</p>
   <p>This design is repeatable and symmetric - meaning that you could create an arm of any length with these same parts (if you disregarded motor strength).</p>
   <img src="/static/entries/images/robot_arm/design/arm_assem.jpg"/>
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-<hr><h3>Manufacture</h3>
+<hr><h2>Manufacture</h2>
   <p>My first design I cut out of a cutting board (HDPE - high density polyethylene) and I tried using 3D toolpaths, which turned out to be very slow and produced. The machine would also cut away material that would have supported the work during later cuts. Furthermore, my first design wasn't great, and the arms weren't stiff enough. There were also sections of the arm that were paper thin - which could have been caused by a number of things:</p>
   <ul>
     <li>Router gantry not tracking level to the router bed - causing the part to be thinner on one side.</li>
@@ -59,11 +59,11 @@
     </div>
   <img src="/static/entries/images/robot_arm/manufacture/assembly.jpg"/>
 
-<h3>Programming</h3>
+<h2>Programming</h2>
   <p>I'm using an Arduino to control the arm because it has easy low-level control and doesn't get interrupted. Since stepping the motors occurs on the order of a few microseconds, the Arduino's main loop consistently occurs more often, allowing for smooth movement of the arm.</p>
   <p>I wrote the driver software for the arm, which can be <a href="https://github.com/claytonketner/Arduino-stepperdriver" target="_blank">found on GitHub</a>. I'm using <a href="https://www.sparkfun.com/products/10267" target="_blank">SparkFun's EasyDriver</a> to drive the stepper motors, which takes care of which coils in the motor to energize - all you have to do is send a direction and step signal. The driver code I wrote allows you to send a g-code-like command via the USB serial cable to tell the arm which angles to rotate to, among other things. This way, I can get MATLAB to perform the heavy calculations and send them to the arm automatically.</p>
 
-<h3>First Run</h3>
+<h2>First Run</h2>
   <p>Here's a short demo showing the arm's Maiden voyage. It shows me compiling the driver code on my computer and sending it to the arduino. The arm then does a simple test, where the bottom segment rotates while the top segment stays vertical.</p>
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/aLx_HQSdqt0?rel=0" frameborder="0" allowfullscreen></iframe>
