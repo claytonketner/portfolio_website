@@ -7,10 +7,12 @@
 
 .website-title {
     font-size: 64px;
+    line-height: 64px;
     font-style: italic;
     font-family: serif;
     font-weight: 200;
     color: black;
+    margin-bottom: 15px;
 }
 
 .banner-wrapper a {
@@ -25,6 +27,34 @@
     margin-top: -12px;
 }
 
+.img-links {
+    text-align: right;
+    height: 0;
+    bottom: 38px;
+}
+
+.img-link {
+    color: white;
+    background-color: slategray;
+    font-size: 18px;
+    display: inline-block;
+    margin-left: -3px;
+}
+
+.glyph-link {
+   padding: 5px 10px;
+   height: 38px;
+}
+
+.glyph-link .glyphicon {
+    top: 4px;
+}
+
+.img-link img {
+    height: 38px;
+    padding: 10px;
+}
+
 .nav-wrapper {
     font-size: 12px;
     margin-bottom: 5px;
@@ -32,16 +62,13 @@
 }
 
 .nav-wrapper nav {
-    margin-bottom: -5px;
+    margin-bottom: -1px;
 }
 
 .nav-item-wrapper {
     border: solid white;
-    border-width: 0 1px 5px 1px;
-}
-
-.nav-item-wrapper:not(:first-child) {
-    border-left-width: 0;
+    border-width: 0 1px 1px 1px;
+    margin-right: -1px;
 }
 
 .nav-item-wrapper a {

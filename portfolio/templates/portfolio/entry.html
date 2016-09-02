@@ -8,7 +8,7 @@
 {% endblock head %}
 
 {% block content %}
-  <div>
+  <div class="entry-header">
     <div class="entry-title">
       <h1>{{ current_entry.verbose_title }}</h1>
     </div>
@@ -16,5 +16,7 @@
       <h4>{{ current_entry.verbose_date }}</h4>
     </div>
   </div>
-  {{ current_entry.body | safe }}
+  <div class="entry-body">
+    {{ current_entry.body | safe }}
+  </div>
 {% endblock content %}

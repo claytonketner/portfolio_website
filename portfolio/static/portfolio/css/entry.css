@@ -1,4 +1,4 @@
-body {
+body .entry-body {
     font-size: 16px !important; /* Need important to override bootstrap */
 }
 
@@ -12,18 +12,18 @@ body {
     margin-bottom: 20px;
 }
 
-img {
+.entry-body img {
     display: block;
     margin: 10px auto;
     width: 80%;
     border-radius: 5px;
 }
 
-.multi-img img {
+.entry-body .multi-img img {
     width: 100%;
 }
 
-.img-caption {
+.entry-body .img-caption {
     padding: 0 10px;
     margin: auto auto;
     margin-bottom: 25px;
@@ -33,11 +33,11 @@ img {
     width: 75%;
 }
 
-.multi-img .img-caption {
+.entry-body .multi-img .img-caption {
     width: 95%;
 }
 
-iframe {
+.entry-body iframe {
     width: 100%;
     border-radius: 5px;
 }
