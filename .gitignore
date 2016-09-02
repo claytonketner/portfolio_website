@@ -2,8 +2,6 @@
 .DS_Store
 *.swp
 
-/cache/
-/cgi-bin/
 /static/
 
 .env
