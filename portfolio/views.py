@@ -4,7 +4,7 @@ from portfolio.models import PortfolioEntry
 
 
 def portfolio_entry(request, entry_slug):
-    all_entries = PortfolioEntry.objects.order_by('when_created')
+    all_entries = PortfolioEntry.objects.order_by('-is_index', '-when_created')
     current_entry = PortfolioEntry.objects.get(slug=entry_slug)
     context = {
         'all_entries': all_entries,
@@ -14,5 +14,5 @@ def portfolio_entry(request, entry_slug):
 
 
 def index(request):
-    index_page = PortfolioEntry.objects.order_by('when_created').first()
+    index_page = PortfolioEntry.objects.get(is_index=True)
     return portfolio_entry(request, index_page.slug)
