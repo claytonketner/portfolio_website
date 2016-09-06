@@ -28,5 +28,5 @@ run:
 
 .PHONY: prod
 prod:
-	heroku run python manage.py load_entries
 	heroku run python manage.py migrate
+	heroku run python manage.py load_entries
