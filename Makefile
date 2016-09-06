@@ -6,6 +6,7 @@ all: load run
 .PHONY: clean
 clean:
 	rm -rf static/
+	find . -name '.DS_Store' | xargs rm -v
 
 load: static load_entries
 
