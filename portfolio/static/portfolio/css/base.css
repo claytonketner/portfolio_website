@@ -30,20 +30,19 @@
 .img-links {
     text-align: right;
     height: 0;
-    bottom: 38px;
+    bottom: 42px;
 }
 
 .img-link {
     color: white;
     background-color: slategray;
-    font-size: 18px;
     display: inline-block;
     margin-left: -3px;
 }
 
 .glyph-link {
    padding: 5px 10px;
-   height: 38px;
+   height: 42px;
 }
 
 .glyph-link .glyphicon {
@@ -51,7 +50,7 @@
 }
 
 .img-link img {
-    height: 38px;
+    height: 42px;
     padding: 10px;
 }
 
