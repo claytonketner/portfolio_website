@@ -27,7 +27,13 @@ migrate:
 run:
 	heroku local
 
-.PHONY: prod
-prod:
+.PHONY: prod_migrate
+prod_migrate:
 	heroku run python manage.py migrate
+
+.PHONY: prod_load
+prod_load:
 	heroku run python manage.py load_entries
+
+.PHONY: prod
+prod: prod_migrate prod_load
