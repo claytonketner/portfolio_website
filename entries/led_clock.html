@@ -6,48 +6,131 @@
   <meta name="verbose_date" content="Summer 2016"/>
 </head>
 <body>
-<p>This is a clock I designed, built, and programmed. It uses a Raspberry Pi, Arduino Uno, and 10 8x8 LED matrices, which are controlled by MAX7219 chips.</p>
+<p>
+  This is a clock I designed, built, and programmed. It uses a Raspberry Pi,
+  Arduino Uno, and 10 8x8 LED matrices, which are controlled by MAX7219 chips.
+</p>
 <h2>(Almost) Final Result</h2>
-  <p>The code is <a href="https://github.com/claytonketner/clockpi">on github</a>.</p>
-  <p>This is still a project I'm working on, but here's the latest:</p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/1YeIUo-MZrA?rel=0" frameborder="0" allowfullscreen></iframe>
-  <p>I designed the number font myself because I wanted it to look good.</p>
+  <p>
+    The code is 
+    <a href="https://github.com/claytonketner/clockpi">
+      on github</a>.
+  </p>
+  <p>
+    This is still a project I'm working on, but here's the latest:
+  </p>
+  <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/1YeIUo-MZrA?rel=0" frameborder="0"
+      allowfullscreen>
+  </iframe>
+  <p>
+    I designed the number font myself because I wanted it to look good.
+  </p>
 
 <h2>Idea</h2>
-  <p>I found these LED arrays on ebay for about $1.50 each. Each one was the 8x8 red LED array, a control board that uses a MAX7219, and header pins. I bought 10 with the idea that I would make a 3x3 or a 2x5 array clock.</p>
+  <p>
+    I found these LED arrays on ebay for about $1.50 each. Each one was the 8x8
+    red LED array, a control board that uses a MAX7219, and header pins. I
+    bought 10 with the idea that I would make a 3x3 or a 2x5 array clock.
+  </p>
 
 <h2>Controlling the LEDs</h2>
-  <p>I found an Arduino library that can control the MAX7219's, so I decided to use an Arduino to control the LEDs and a Raspberry Pi to easily connect to the internet to know what time it is, check the weather, look at my calendar, or anything else I would think up.</p>
-  <p>Unfortunately, I didn't think of looking for a MAX7219 library for the Raspberry Pi, which would allow me to cut out the Arduino middle-man. Oops.</p>
+  <p>
+    I found an Arduino library that can control the MAX7219's, so I decided to
+    use an Arduino to control the LEDs and a Raspberry Pi to easily connect to
+    the internet to know what time it is, check the weather, look at my
+    calendar, or anything else I would think up.
+  </p>
+  <p>
+    Unfortunately, I didn't think of looking for a MAX7219 library for the
+    Raspberry Pi, which would allow me to cut out the Arduino middle-man. Oops.
+  </p>
 
 <h2>Hardware Mounting</h2>
-  <p>I mounted everything on a plastic board, so that I could easily mount it on a wall. I wanted all the components to be centered vertically. I also wanted as few wires showing as possible. To accomplish that, I designed everything so that wires would pass through the back board and live behind it, coming up behind the boards.</p>
-  <img big src="/static/entries/images/led_clock/everything_mounted_low.JPG" caption="
+  <p>
+    I mounted everything on a plastic board, so that I could easily mount it on
+    a wall. I wanted all the components to be centered vertically. I also
+    wanted as few wires showing as possible. To accomplish that, I designed
+    everything so that wires would pass through the back board and live behind
+    it, coming up behind the boards.
+  </p>
+  <img big src="/static/entries/images/led_clock/everything_mounted_low.JPG"
+      caption="
     Everything mounted - the boards and LEDs are all centered nicely.
   "/>
-  <p>I also designed and 3D printed some over-engineered mounts for the Arduino and RPi that stand them off from the back board so that I could route wires up from below to keep the look clean.</p>
+  <p>
+    I also designed and 3D printed some over-engineered mounts for the Arduino
+    and RPi that stand them off from the back board so that I could route
+    wires up from below to keep the look clean.
+  </p>
   <img big src="/static/entries/images/led_clock/printed_mount_1.JPG" caption="
-    The 3D printed Arduino and RPi mounts I designed hold them up so that wires can be routed up beneath them so that there are no messy wires showing.
+    The 3D printed Arduino and RPi mounts I designed hold them up so that wires
+    can be routed up beneath them so that there are no messy wires showing.
   "/>
   <img big src="/static/entries/images/led_clock/printed_mount_2.JPG" caption="
-     The brown cover on the back plate is the peelable protective film on the plastic.
+     The brown cover on the back plate is the peelable protective film on the
+     plastic.
    "/>
-  <p>The LED control boards are daisy-chainable, but the pitch between the pins makes it impossible to mount them side by side on a breadboard. To get around this annoying design flaw, I had to hack up a unique mounting solution. Unfortunately, I don't have any pictures showing my solution, but it mostly involves an intermediate mounting plate - it's the orange part below the LEDs in the pictures.</p>
+  <p>
+    The LED control boards are daisy-chainable, but the pitch between the pins
+    makes it impossible to mount them side by side on a breadboard. To get
+    around this annoying design flaw, I had to hack up a unique mounting
+    solution. Unfortunately, I don't have any pictures showing my solution,
+    but it mostly involves an intermediate mounting plate - it's the orange
+    part below the LEDs in the pictures.
+  </p>
   <img big src="/static/entries/images/led_clock/everything_mounted_top.JPG"/>
 
 <h2>Software</h2>
-  <p>I implemented everything as simply as possible at first, and then optimized later. This meant I could also see the worst implementation runtime and the best. The results of this can be seen in the README <a href="https://github.com/claytonketner/clockpi">on github</a>.</p>
-  <p>Here's a video of when I first got the clock working and showing the time (it was late at night - about 2:25 AM).
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/fXFK4JhfHzw?rel=0" frameborder="0" allowfullscreen></iframe>
-  <p>I also devised a benchmark so that I could put a number on the performance of the clock. The number doesn't mean much, but is useful for comparing the unoptimized vs. optimized software. The benchmark consists of the RPi telling the Arduino what to do over serial, and the Arduino displaying it on the LEDs. The benchmark consists of displaying 3 screens:</p>
+  <p>
+    I implemented everything as simply as possible at first, and then optimized
+    later. This meant I could also see the worst implementation runtime and the
+    best. The results of this can be seen in
+    <a href="https://github.com/claytonketner/clockpi">
+      the README on github
+    </a>.
+  </p>
+  <p>
+    Here's a video of when I first got the clock working and showing the time
+    (it was late at night - about 2:25 AM).
+  </p>
+  <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/fXFK4JhfHzw?rel=0" frameborder="0"
+      allowfullscreen>
+  </iframe>
+  <h3>Benchmark</h3>
+  <p>
+    I also devised a benchmark so that I could put a number on the performance
+    of the clock. The number doesn't mean much, but is useful for comparing
+    the unoptimized vs. optimized software. The benchmark consists of the RPi
+    telling the Arduino what to do over serial, and the Arduino displaying it
+    on the LEDs. The benchmark consists of displaying 3 screens:
+  </p>
   <ol>
     <li>All LEDs lit</li>
     <li>The numbers 0-4 side by side</li>
     <li>The numbers 5-9 side by side</li>
   </ol>
-  <p>Here's the first (unoptimized software) benchmark run - it takes about 30.7 seconds to run! You can see the delay between screen changes, which is due to slowness in the communication between the RPi and the Arduino. You can also see the changes sweep across the display, which is due to the slowness of the Arduino communicating with the MAX7219 chips. Fortunately, both of these issues were optimizable!</p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/i6YQV9MC2LE?rel=0" frameborder="0" allowfullscreen></iframe>
-  <p>And here's the optimized software benchmark (don't blink!) - it only takes 1.0 second to run! Here, the cycle time to update the display is about 0.38 seconds. The fact that this cycle time is sub-second is why I'm able to have the clock display seconds.</p>
+  <h3>Unoptimized Benchmark</h3>
+  <p>
+    Here's the first (unoptimized software) benchmark run - it takes about 30.7
+    seconds to run! You can see the delay between screen changes, which is due
+    to slowness in the communication between the RPi and the Arduino. You can
+    also see the changes sweep across the display, which is due to the slowness
+    of the Arduino communicating with the MAX7219 chips. Fortunately, both of
+    these issues were optimizable!
+  </p>
+  <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/i6YQV9MC2LE?rel=0" frameborder="0"
+      allowfullscreen>
+  </iframe>
+  <h3>Optimized Benchmark</h3>
+  <p>
+    And here's the optimized software benchmark (don't blink!) - it only takes
+    1.0 second to run! Here, the cycle time to update the display is about 0.38
+    seconds. The fact that this cycle time is sub-second is why I'm able to
+    have the clock display seconds.
+  </p>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/48Vi7UR8Ghw?rel=0" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
