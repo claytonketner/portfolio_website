@@ -15,6 +15,9 @@ class PortfolioEntry(models.Model):
     is_index = models.BooleanField(default=False)
     views = models.PositiveIntegerField(default=0)
 
+    class Meta:
+        verbose_name_plural = 'Portfolio entries'
+
     def __str__(self):
         return self.title
 
