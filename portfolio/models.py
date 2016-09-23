@@ -13,6 +13,7 @@ class PortfolioEntry(models.Model):
     body = models.TextField()
     slug = models.SlugField(max_length=20, unique=True)
     is_index = models.BooleanField(default=False)
+    views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title
