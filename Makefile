@@ -1,4 +1,5 @@
 LOCAL=heroku local:run
+APP=--app clayton-portfolio-website
 
 
 all: load run
@@ -30,11 +31,11 @@ run:
 
 .PHONY: prod_migrate
 prod_migrate:
-	heroku run python manage.py migrate
+	heroku run $(APP) python manage.py migrate
 
 .PHONY: prod_load
 prod_load:
-	heroku run python manage.py load_entries
+	heroku run $(APP) python manage.py load_entries
 
 .PHONY: prod
 prod: prod_migrate prod_load
