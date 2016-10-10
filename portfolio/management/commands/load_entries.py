@@ -30,7 +30,7 @@ class Command(BaseCommand):
                 img.insert_after(caption_div)
 
     def handle(self, *args, **kwargs):
-        PortfolioEntry.objects.all().delete()
+        entries_with_file = set()
         file_base = settings.PORTFOLIO_FILES_DIR
         for filename in os.listdir(file_base):
             if '.html' not in filename:
@@ -44,7 +44,22 @@ class Command(BaseCommand):
             metadata = md_parser.metadata['meta']
             soup = BeautifulSoup(contents, 'html.parser')
             self.wrap_html_tags(soup)
-            self.stdout.write('Adding entry %s' % metadata.get('title'))
-            pe = PortfolioEntry.objects.create(
-                head=str(soup.head), body=str(soup.body), **metadata)
-            pe.save()
+            title = metadata.get('title')
+            head = str(soup.head)
+            body = str(soup.body)
+            entry, created = PortfolioEntry.objects.get_or_create(title=title)
+            entries_with_file.add(entry)
+            entry.head = head
+            entry.body = body
+            entry.__dict__.update(**metadata)
+            entry.save()
+            if created:
+                self.stdout.write('Added new entry %s' % title)
+            else:
+                self.stdout.write('Updated existing entry %s' % title)
+        # Clean up entries without a corresponding .html file
+        entries_without_file = (set(PortfolioEntry.objects.all()) -
+                                entries_with_file)
+        for old_entry in entries_without_file:
+            self.stdout.write('Deleting old entry %s' % old_entry.title)
+            old_entry.delete()
