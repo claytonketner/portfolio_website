@@ -5,8 +5,8 @@ from django.template.defaultfilters import slugify
 
 
 class PortfolioEntry(models.Model):
-    title = models.CharField(max_length=50)
-    when_created = models.DateTimeField()
+    title = models.CharField(max_length=50, unique=True)
+    when_created = models.DateTimeField(blank=True, null=True)
     verbose_title = models.CharField(max_length=200, blank=True)
     verbose_date = models.CharField(max_length=50, blank=True)
     head = models.TextField()
