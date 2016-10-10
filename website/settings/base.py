@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -17,8 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 PORTFOLIO_FILES_DIR = os.path.join(BASE_DIR, '../entries')
 
-SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = bool(int(os.environ['DEBUG']))
+SECRET_KEY = os.environ.get('SECRET_KEY', None)
+DEBUG = bool(int(os.environ.get('DEBUG', False)))
 
 ALLOWED_HOSTS = ['localhost', '.herokuapp.com', '.claytonketner.com']
 
@@ -96,7 +97,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
