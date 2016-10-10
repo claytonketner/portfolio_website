@@ -7,6 +7,7 @@ all: load run
 clean:
 	rm -rf static/
 	find . -name '.DS_Store' | xargs rm -v
+	find . -name '*.pyc' | xargs rm -v
 
 load: static load_entries
 
