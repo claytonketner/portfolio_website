@@ -51,6 +51,9 @@ class Command(BaseCommand):
             entries_with_file.add(entry)
             entry.head = head
             entry.body = body
+            if 'is_index' not in metadata:
+                metadata['is_index'] = False
+            entry.verbose_title = None
             entry.__dict__.update(**metadata)
             entry.save()
             if created:

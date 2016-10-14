@@ -6,6 +6,7 @@ from portfolio.models import PortfolioEntry
 
 def portfolio_entry(request, entry_slug):
     all_entries = PortfolioEntry.objects.order_by('-is_index', '-when_created')
+    all_entries = all_entries.exclude(is_index=True)
     current_entry = PortfolioEntry.objects.get(slug=entry_slug)
     current_entry.views = F('views') + 1
     current_entry.save()
