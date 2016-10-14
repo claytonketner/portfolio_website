@@ -29,6 +29,10 @@ migrate:
 run:
 	heroku local
 
+.PHONY: shell_plus
+shell_plus:
+	$(LOCAL) python manage.py shell_plus
+
 .PHONY: prod_migrate
 prod_migrate:
 	heroku run $(APP) python manage.py migrate
