@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta name="title" content="LED Clock"/>
-  <meta name="verbose_title" content="LED Clock (WIP)"/>
+  <meta name="verbose_title" content="LED Clock"/>
   <meta name="when_created" content="2016-05-01"/>
   <meta name="verbose_date" content="Summer 2016"/>
 </head>
@@ -10,14 +10,15 @@
   This is a clock I designed, built, and programmed. It uses a Raspberry Pi,
   Arduino Uno, and 10 8x8 LED matrices, which are controlled by MAX7219 chips.
 </p>
-<h2>(Almost) Final Result</h2>
+<h2>Final Result</h2>
   <p>
     The code is 
     <a href="https://github.com/claytonketner/clockpi">
       on github</a>.
   </p>
+  <img big src="/static/entries/images/led_clock/final_product.JPG"/>
   <p>
-    This is still a project I'm working on, but here's the latest:
+    Here's a non-finished version that's using the finished clock face:
   </p>
   <iframe width="560" height="315"
       src="https://www.youtube.com/embed/1YeIUo-MZrA?rel=0" frameborder="0"
@@ -146,5 +147,35 @@
     have the clock display seconds.
   </p>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/48Vi7UR8Ghw?rel=0" frameborder="0" allowfullscreen></iframe>
+
+  <h2>Too bright!</h2>
+  <p>
+    Everything was working great, except I had one problem. At night when I
+    was trying to sleep, the LEDs were annoyingly bright, even though I had
+    set the MAX7219s to be at minimum brightness. I looked at the
+    datasheet for the MAX7219 and turns out that the power pin goes straight
+    to the LEDs. Bumping up the resistor on the power pin would reduce the
+    current to the LEDs and make them dimmer!
+  </p>
+  <h3>Doing it</h3>
+  <p>
+    I measured the SMD resistor on the circuit board and it was 10k. After a
+    few tests, I found that 50k made the LEDs not too bright in a dark room.
+    Unfortunately, I didn't have any 50k SMD resistors, so I had to wire up
+    two through-hole 100k resistors in parallel. It was kind of hacky, but
+    I made it work.
+  </p>
+  <img big src="/static/entries/images/led_clock/parallel_resistors.JPG" caption="
+    I soldered the two 100k resistors in parallel and shaped the leads so that
+    I could solder them on to the SMD solder pads on the circuit board.
+  "/>
+  <img big src="/static/entries/images/led_clock/installed_resistors.JPG" caption="
+    Here's my 'resistor' replacing the SMD one. You can see that the leads are
+    very close to the chip.
+  "/>
+  <img big src="/static/entries/images/led_clock/heat_shrink_resistors.JPG" caption="
+    To prevent a short between the resistors and the pins on the MAX7219, I
+    just used some heat-shrink tubing.
+  "/>
 </body>
 </html>
