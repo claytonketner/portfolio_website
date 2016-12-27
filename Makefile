@@ -27,7 +27,7 @@ migrate:
 
 .PHONY: run
 run:
-	heroku local
+	heroku local local
 
 .PHONY: shell_plus
 shell_plus:
