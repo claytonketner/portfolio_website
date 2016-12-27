@@ -32,26 +32,28 @@
           </div>
         </div>
       </a>
-      <div class="">
-        <div class="img-links col-xs-12 col-md-8 col-md-offset-2">
-          <a href="https://www.linkedin.com/in/claytonketner" target="_blank">
-            <div class="img-link">
-              <img src="{% static "portfolio/images/linkedin.png" %}" alt="linkedin"/>
-            </div>
-          </a>
-          <a href="https://www.github.com/claytonketner" target="_blank">
-            <div class="img-link">
-              <img src="{% static "portfolio/images/github.png" %}" alt="github"/>
-            </div>
-          </a>
-          <a href="https://github.com/claytonketner/general-resume/raw/master/output/Clayton-Ketner_General-Resume.pdf" target="_blank">
-            <div class="img-link">
-              <img src="{% static "portfolio/images/resume.png" %}" alt="resume"/>
-            </div>
+    </div>
+    {% comment %} External links {% endcomment %}
+    <div class="row nav-wrapper external-links">
+      <nav class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="nav-item-wrapper pull-left">
+          <a href="https://github.com/claytonketner/general-resume/raw/master/output/Clayton-Ketner_General-Resume.pdf">
+            <div class="nav-item">Resume</div>
           </a>
         </div>
-      </div>
+        <div class="nav-item-wrapper pull-left">
+          <a href="https://www.linkedin.com/in/claytonketner">
+            <div class="nav-item">LinkedIn</div>
+          </a>
+        </div>
+        <div class="nav-item-wrapper pull-left">
+          <a href="https://www.github.com/claytonketner">
+            <div class="nav-item">GitHub</div>
+          </a>
+        </div>
+      </nav>
     </div>
+    {% comment %} Entries {% endcomment %}
     <div class="row nav-wrapper">
       <nav class="col-xs-12 col-md-8 col-md-offset-2">
         {% for entry in all_entries %}

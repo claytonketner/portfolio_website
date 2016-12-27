@@ -6,10 +6,8 @@
 }
 
 .website-title {
-    font-size: 64px;
-    line-height: 64px;
-    font-style: italic;
-    font-family: serif;
+    font-size: 52px;
+    line-height: 62px;
     font-weight: 200;
     color: black;
     margin-bottom: 15px;
@@ -27,41 +25,23 @@
     margin-top: -12px;
 }
 
-.img-links {
-    text-align: right;
-    height: 0;
-    bottom: 42px;
-}
-
-.img-link {
-    color: white;
-    background-color: slategray;
-    display: inline-block;
-    margin-left: -3px;
-}
-
-.glyph-link {
-   padding: 5px 10px;
-   height: 42px;
-}
-
-.glyph-link .glyphicon {
-    top: 4px;
-}
-
-.img-link img {
-    height: 42px;
-    padding: 10px;
-}
-
 .nav-wrapper {
     font-size: 12px;
     margin-bottom: 5px;
-    background-color: slategray;
+    background-color: slategray;  /* #708090 */
+}
+
+.nav-wrapper.external-links {
+    background-color: #9aa6b1;
+    margin-bottom: 2px;
 }
 
 .nav-wrapper nav {
     margin-bottom: -1px;
+}
+
+.nav-label .nav-item {
+    padding-left: 0;
 }
 
 .nav-item-wrapper {
@@ -92,6 +72,5 @@
 .nav-item {
     display: inline-block;
     padding: 10px 15px;
-    background-color: slategray;
     font-size: 10pt;
 }
