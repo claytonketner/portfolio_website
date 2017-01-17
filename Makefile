@@ -7,8 +7,8 @@ all: load run
 .PHONY: clean
 clean:
 	rm -rf static/
-	find . -name '.DS_Store' | xargs rm -v
-	find . -name '*.pyc' | xargs rm -v
+	find . -name '.DS_Store' -delete
+	find . -name '*.pyc' -delete
 
 load: static load_entries
 
