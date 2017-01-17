@@ -1,7 +1,6 @@
 import metadata_parser
 import os
 from bs4 import BeautifulSoup
-
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
