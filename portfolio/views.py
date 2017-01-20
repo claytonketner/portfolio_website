@@ -10,6 +10,9 @@ def portfolio_entry(request, entry_slug):
     current_entry = PortfolioEntry.objects.get(slug=entry_slug)
     current_entry.views = F('views') + 1
     current_entry.save()
+    # According to Django docs, when you use an F expression, you need to
+    # reload the object to be able to read the value of that field (views)
+    current_entry = PortfolioEntry.objects.get(slug=entry_slug)
     context = {
         'all_entries': all_entries,
         'current_entry': current_entry,

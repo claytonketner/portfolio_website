@@ -13,10 +13,15 @@
       <h1>{{ current_entry.verbose_title }}</h1>
     </div>
     <div class="entry-date">
-      <h4>{{ current_entry.verbose_date }}</h4>
+      {{ current_entry.verbose_date }}
+    </div>
+    <div class="entry-views">
+      👁 &nbsp;{{ current_entry.views }}
     </div>
   </div>
   <div class="entry-body">
     {{ current_entry.body | safe }}
+  </div>
+  <div class="entry-footer">
   </div>
 {% endblock content %}

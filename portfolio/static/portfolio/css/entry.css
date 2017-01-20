@@ -1,4 +1,8 @@
-.entry-header, .entry-body {
+.entry-header {
+    margin-bottom: 20px;
+}
+
+.entry-header, .entry-body, .entry-footer {
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
@@ -8,10 +12,10 @@
     margin-bottom: 0;
 }
 
-.entry-date h4 {
+.entry-date {
+    font-size: 18px;
     font-style: italic;
     margin-top: 0;
-    margin-bottom: 20px;
 }
 
 .entry-body {
@@ -46,4 +50,8 @@
 .entry-body iframe {
     width: 100%;
     border-radius: 5px;
+}
+
+.entry-footer {
+    margin: 15px auto;
 }
