@@ -17,10 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from portfolio import views
+from website.views import newrelic as newrelic_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.index, name='index'),
+    url(r'^newrelic$', newrelic_view, name='newrelic'),
     url(r'^(?P<entry_slug>[\w\-]+)/$', views.portfolio_entry, name='entry'),
 ]
