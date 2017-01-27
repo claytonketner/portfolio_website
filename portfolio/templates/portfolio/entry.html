@@ -8,20 +8,22 @@
 {% endblock head %}
 
 {% block content %}
-  <div class="entry-header">
-    <div class="entry-title">
-      <h1>{{ current_entry.verbose_title }}</h1>
+  <div class="entry-wrapper">
+    <div class="entry-header">
+      <div class="entry-title">
+        <h1>{{ current_entry.verbose_title }}</h1>
+      </div>
+      <div class="entry-date">
+        {{ current_entry.verbose_date }}
+      </div>
+      <div class="entry-views">
+        👁 &nbsp;{{ current_entry.views }}
+      </div>
     </div>
-    <div class="entry-date">
-      {{ current_entry.verbose_date }}
+    <div class="entry-body">
+      {{ current_entry.body | safe }}
     </div>
-    <div class="entry-views">
-      👁 &nbsp;{{ current_entry.views }}
+    <div class="entry-footer">
     </div>
-  </div>
-  <div class="entry-body">
-    {{ current_entry.body | safe }}
-  </div>
-  <div class="entry-footer">
   </div>
 {% endblock content %}

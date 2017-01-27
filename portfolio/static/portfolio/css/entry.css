@@ -1,3 +1,15 @@
+/* Bootstrap goes from large to medium at 1200px, but 1250 keeps a better
+margin around the border */
+@media (min-width: 1250px) {
+    .entry-wrapper {
+        border-style: solid;
+        /* Need to use 1px all around and white on the top and bottom or else the
+        "corners" won't show up and the border won't start at the right place */
+        border-width: 1px;
+        border-color: white #ECECEC;
+    }
+}
+
 .entry-header {
     margin-bottom: 20px;
 }
