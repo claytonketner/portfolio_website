@@ -23,6 +23,7 @@ load_entries:
 .PHONY: migrate
 migrate:
 	$(LOCAL) python manage.py makemigrations portfolio
+	$(LOCAL) python manage.py makemigrations website
 	$(LOCAL) python manage.py migrate
 
 .PHONY: run

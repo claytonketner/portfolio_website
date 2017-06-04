@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
 
+    'website',
     'portfolio',
 ]
 
@@ -49,6 +50,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'website.middleware.CountView',
 ]
 
 ROOT_URLCONF = 'website.urls'
