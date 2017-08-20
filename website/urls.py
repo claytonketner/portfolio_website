@@ -18,7 +18,8 @@ from django.contrib import admin
 
 from portfolio import views
 from website.views import newrelic as newrelic_view
-from website.views import resume as resume_view
+from website.views import resume_dl
+from website.views import resume_gh
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^newrelic$', newrelic_view, name='newrelic'),
     url(r'^(?P<entry_slug>[\w\-]+)/$', views.portfolio_entry, name='entry'),
-    url(r'^resume$', resume_view, name='resume'),
+    url(r'^resume-dl$', resume_dl, name='resume_dl'),
+    url(r'^resume-gh$', resume_gh, name='resume_gh'),
 ]
