@@ -25,8 +25,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.index, name='index'),
-    url(r'^newrelic$', newrelic_view, name='newrelic'),
+    url(r'^newrelic/$', newrelic_view, name='newrelic'),
+    url(r'^resume-dl/$', resume_dl, name='resume_dl'),
+    url(r'^resume-gh/$', resume_gh, name='resume_gh'),
     url(r'^(?P<entry_slug>[\w\-]+)/$', views.portfolio_entry, name='entry'),
-    url(r'^resume-dl$', resume_dl, name='resume_dl'),
-    url(r'^resume-gh$', resume_gh, name='resume_gh'),
 ]
