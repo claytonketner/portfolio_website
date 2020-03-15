@@ -3,8 +3,12 @@ from django.db.models import F
 from django.shortcuts import render
 
 from portfolio.models import PortfolioEntry
+from website.views import count_view
 
 
+# Using this decorator isn't really necessary since PortfolioEntry already has a view counter.
+# Mostly just doing it for consistency
+@count_view
 def portfolio_entry(request, entry_slug):
     all_entries = PortfolioEntry.objects.order_by('-is_index', '-when_created')
     all_entries = all_entries.exclude(is_index=True)
