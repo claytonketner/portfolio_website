@@ -30,3 +30,5 @@ urlpatterns = [
     url(r'^resume-gh/$', resume_gh, name='resume_gh'),
     url(r'^(?P<entry_slug>[\w\-]+)/$', views.portfolio_entry, name='entry'),
 ]
+
+handler404 = "website.views.record_404_view"
