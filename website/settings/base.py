@@ -41,15 +41,16 @@ INSTALLED_APPS = [
     'portfolio',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -73,13 +74,6 @@ TEMPLATES = [
         },
     },
 ]
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '../static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, '../entries/static'),
-]
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
@@ -149,3 +143,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '../entries/static'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
